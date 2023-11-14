@@ -28,27 +28,20 @@ public class ValidationChecker {
     }
 
 
-    public static int intChecker(String input) throws NumberFormatException {
-        try {
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-            throw new NumberFormatException(ERRMSG.ERROR_REQ_NEW_DATE.label);
-        }
-
-    }
-
     public static int dateChecker(String input) {
         try {
-            int temp = intChecker(input);
+            int temp = Integer.parseInt(input);
             if (temp < 1 || temp > 31) {
-                throw new IllegalArgumentException(ERRMSG.ERROR_REQ_NEW_DATE.label);
+                throw new IllegalArgumentException();
             }
             return temp;
         } catch (NumberFormatException e) {
+            e.printStackTrace();
+            System.out.println(ERRMSG.ERROR_REQ_NEW_DATE.label);
             return 0;
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
+            System.out.println(ERRMSG.ERROR_REQ_NEW_DATE.label);
             return 0;
         }
 
@@ -61,9 +54,9 @@ public class ValidationChecker {
         }
         val_menu = tempList_i.split("-")[0];
         if (!apit.contains(val_menu)
-                || !main.contains(val_menu)
-                || !dese.contains(val_menu)
-                || !drin.contains(val_menu)) {
+                && !main.contains(val_menu)
+                && !dese.contains(val_menu)
+                && !drin.contains(val_menu)) {
             throw new IllegalArgumentException(ERRMSG.ERROR_REQ_NEW_INPUT.label);
         } else if (temp_menu.contains(val_menu)) {
             throw new IllegalArgumentException(ERRMSG.ERROR_REQ_NEW_INPUT.label);
@@ -96,11 +89,12 @@ public class ValidationChecker {
     }
 
     static void checkAllDrink(List<String> temp_menu) {
-        if (!not_drin.containsAll(temp_menu)) {
+        if (drin.containsAll(temp_menu)) {
             throw new IllegalArgumentException(ERRMSG.ERROR_REQ_NEW_INPUT.label);
         }
     }
-    static List<List<String>> makeList(List<String> temp_menu , List<Integer> temp_count){
+
+    static List<List<String>> makeList(List<String> temp_menu, List<Integer> temp_count) {
         List<List<String>> total = new ArrayList<>();
         for (int i = 0; i < temp_menu.size(); i++) {
             List<String> elem = new ArrayList<>();
@@ -110,6 +104,7 @@ public class ValidationChecker {
         }
         return total;
     }
+
     static List<List<String>> inputDevider(List<String> temp_list) {
         List<String> temp_menu = new ArrayList<>();
         List<Integer> temp_count = new ArrayList<>();
@@ -127,7 +122,7 @@ public class ValidationChecker {
             e.printStackTrace();
             return null;
         }
-        return makeList(temp_menu,temp_count);
+        return makeList(temp_menu, temp_count);
     }
 
     public static List<List<String>> menuChecker(String input) {
