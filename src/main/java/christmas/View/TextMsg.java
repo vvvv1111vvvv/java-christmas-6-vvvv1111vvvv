@@ -13,7 +13,10 @@ public enum TextMsg {
     SHOW_TOTAL_BENEFITS("<총혜택 금액>"),
     SHOW_EXPECTED_TOTAL_PRICE("<할인 후 예상 결제 금액>"),
     EVENT_BEDGE("<12월 이벤트 배지>"),
-    VAR_WON("원");
+    VAR_WON("원"),
+    VAR_COUNT("개"),
+    NO("없음"),
+    COL(":");
     public final String label;
 
     private TextMsg(String s) {
