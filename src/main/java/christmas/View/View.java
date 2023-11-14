@@ -12,25 +12,28 @@ public class View {
 
     }
 }
-public class inputView{
-    private int temp;
+class inputView{
+
     public int readDate(){
+        int temp;
         System.out.println(TextMsg.ASK_DATE.label);
         do {
             String input = Console.readLine();
             temp = ValidationChecker.dateChecker(input);
         }
-        while(temp!=0);
+        while(temp==0);
         return temp;
     }
-    public List<String> readMenu(){
+    public List<List<String>> readMenu(){
+        List<List<String>> temp_str;
         System.out.println(TextMsg.ASK_DISHES.label);
         do {
             String input = Console.readLine();
-            temp = ValidationChecker.menuChecker(input);
+            temp_str = ValidationChecker.menuChecker(input);
+
         }
-        while(temp!=0);
-        return temp;
+        while(temp_str==null);
+        return temp_str;
     }
 }
 
