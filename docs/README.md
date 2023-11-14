@@ -2,31 +2,54 @@
 
 ## 구현 기능
 
-[ ] Model
+
+[ ] christmas package
+
+    [ ] Application class
+        [ ] main: 전체 applicaiton을 실행
+
+[ ] christmas.Model package
 입력받은 메뉴의 할인 금액과 혜택 등을 계산한다.
 
-    [ ] ValidationChecker: 입력값에 따라 예외발생시 처리한다.
+    [ ] ValidationChecker class: 입력값에 따라 예외발생시 처리한다.
         [ ] 날짜 예외 1. 날짜가 1<= 날짜 <=31가 아닌 경우
-
         [ ] 메뉴 예외 1. 음료수만 주문하는 경우, "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요."        
         [ ] 메뉴 예외 2. 메뉴판에 없는 메뉴를 입력하는 경우, "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요."
         [ ] 메뉴 예외 3. 메뉴의 개수는 를 1미만으로 입력한 경우, "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요."
         [ ] 메뉴 예외 4. 메뉴 형식이 예시와 다른 경우, "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요."
         [ ] 메뉴 예외 5. 중복 메뉴를 입력한 경우(e.g. 시저샐러드-1,시저샐러드-1), "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요."
         [ ] 메뉴 예외 6. 20개 초과 주문하는 경우, "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요."
-    
-[ ] View
+
+    [ ] Model class: 계산을 수행한다.
+        [ ] beforeTotal: <할인 전 총주문 금액> 계산 
+        [ ] giftMenu: <증정 메뉴> 계산
+        [ ] benefitIndex: <혜택 내역> 계산
+        [ ] totalbenefits: <총혜택 금액> 계산
+        [ ] checkBadge: <12월 이벤트 배지> 계산
+[ ] christmas.View package
 사용자에게 입출력한다.
 
-    [ ] inputView: 입력 메시지를 출력, 데이터를 입력 받는다.
+    [ ] inputView class: 입력 메시지를 출력, 데이터를 입력 받는다.
         [ ] readDate: 날짜를 입력받아, 예외여부를 검사해 재입력을 받는다.
         [ ] readMenu: 메뉴를 입력받아, 예외여부를 검사해 재입력을 받는다.
-    [ ] outputView: 연산 결과를 출력
 
-[ ] Controller
+    [ ] outputView class: 연산 결과를 출력
+        [ ] printDate: 날짜 출력
+        [ ] printOrder: <주문 메뉴> 출력
+        [ ] printBeforeTotal: <할인 전 총주문 금액> 출력
+        [ ] printGiftMenu:<증정 메뉴> 출력
+        [ ] printBenefitIndex: <혜택 내역> 출력
+        [ ] printTotalBenefits: <총혜택 금액> 출력
+        [ ] printTotalPrice: <할인 후 예상 결제 금액> 출력
+        [ ] printEventBadge: <12월 이벤트 배지> 출력
+
+[ ] christmas.Controller package
 Action을 제어한다.
 
-    [ ] Action을 수행한다.
+    [ ] Controller class
+        [ ] getDateandOrder: 날짜, 주문을 정리해 입력받기를 제어한다.
+        [ ] calculation: 주문 금액, 혜택 내역을 계산을 제어한다.
+        [ ] printResult: 연산 결과 출력을 제어한다.
     
 
 
