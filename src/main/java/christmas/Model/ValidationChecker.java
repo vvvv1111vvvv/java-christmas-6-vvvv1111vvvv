@@ -78,7 +78,7 @@ public class ValidationChecker {
         return val_count;
     }
 
-    static void checkMax20(List<String> temp_menu, List<Integer> temp_count) {
+    static void checkMax20(List<String> temp_menu, List<Integer> temp_count) throws IllegalArgumentException{
         int temp_num = 0;
         for (int i = 0; i < temp_menu.size(); i++) {
             temp_num = temp_num + temp_count.get(i);
@@ -88,7 +88,7 @@ public class ValidationChecker {
         }
     }
 
-    static void checkAllDrink(List<String> temp_menu) {
+    static void checkAllDrink(List<String> temp_menu) throws IllegalArgumentException{
         if (drin.containsAll(temp_menu)) {
             throw new IllegalArgumentException(ERRMSG.ERROR_REQ_NEW_INPUT.label);
         }
@@ -116,9 +116,11 @@ public class ValidationChecker {
             checkMax20(temp_menu, temp_count);
             checkAllDrink(temp_menu);
         } catch (NumberFormatException e) {
+            System.out.println(ERRMSG.ERROR_REQ_NEW_INPUT.label);
             e.printStackTrace();
             return null;
         } catch (IllegalArgumentException e) {
+            System.out.println(ERRMSG.ERROR_REQ_NEW_INPUT.label);
             e.printStackTrace();
             return null;
         }
