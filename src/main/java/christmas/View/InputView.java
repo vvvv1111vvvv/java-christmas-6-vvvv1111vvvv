@@ -10,7 +10,7 @@ import java.util.List;
 
 
 public class InputView {
-    public void inputView(){
+    public InputView(){
         System.out.println(TextMsg.WELCOME.label);
     }
     public int readDate() {
